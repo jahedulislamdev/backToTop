@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<style>
+   * {
+      scroll-behavior: smooth;
+   }
+
+   div {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      border-radius: 5px;
+   }
+
+   #section1 {
+      background: rgba(255, 0, 0, 0.272);
+   }
+
+   #section2 {
+      background: rgba(255, 217, 0, 0.103);
+   }
+
+   #section3 {
+      background: rgba(172, 255, 47, 0.386);
+   }
+
+   #section4 {
+      background: rgba(128, 128, 128, 0.368);
+   }
+
+   #section5 {
+      background: rgba(177, 87, 132, 0.167);
+   }
+
+   #backToTop {
+      width: 60px;
+      height: 60px;
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      background: #1c1101;
+      border-radius: 7px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s, visibility 0.5s ease-in-out;
+   }
+
+   #backToTop.activeBtn {
+      opacity: 1;
+      visibility: visible;
+   }
+
+   #backToTop svg {
+      width: 40px;
+   }
+
+   nav {
+      background: #73aac77d;
+      padding: 10px 0;
+   }
+
+   ul {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+   }
+
+   ul li {
+      list-style: none;
+      margin-right: 50px;
+   }
+
+   ul li a {
+      text-decoration: none;
+      font-size: 17px;
+      color: black;
+      text-transform: uppercase;
+   }
+</style>
+
+<body>
+
+   <div id="section1" style="display: block; font-size: 15px;">
+      <nav>
+         <ul>
+            <li><a href="#section1">section1</a></li>
+            <li><a href="#section2">section2</a></li>
+            <li><a href="#section3">section3</a></li>
+            <li><a href="#section4">section4</a></li>
+            <li><a href="#section5">section5</a></li>
+            <li style="background: rgb(49, 64, 27); padding: 10px 5px; border-radius: 5px;"><a style="color: #fff"
+                  href="#login">Login</a>
+            </li>
+         </ul>
+      </nav>
+   </div>
+   <div id="section2">section 2</div>
+   <div id="section3">section 3</div>
+   <div id="section4">section 4</div>
+   <div id="section5">section 5</div>
+   <div id="backToTop">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+         class="size-3">
+         <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+         <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+      </svg>
+   </div>
+   <script>
+      const backToTop = document.getElementById("backToTop");
+
+      // Add event listener for scroll
+      window.addEventListener("scroll", () => {
+         if (window.pageYOffset > 100) {
+            backToTop.classList.add("activeBtn");
+         } else {
+            backToTop.classList.remove("activeBtn");
+         }
+      });
+
+      // Add event listener for click to scroll to top
+      backToTop.addEventListener("click", () => {
+         window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+   </script>
+</body>
+
+</html>
